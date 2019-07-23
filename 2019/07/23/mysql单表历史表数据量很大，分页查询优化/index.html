@@ -82,16 +82,17 @@
 
 
 
-<meta name="description" content="please relax">
-<meta property="og:type" content="website">
-<meta property="og:title" content="Trevor Feng">
-<meta property="og:url" content="http://yoursite.com/categories/JVM/index.html">
+<meta name="description" content="前言在公司的历史数据表中，数据量很大，上了百万级别。使用常规的分页查询，不能达到理想的效果，今天在公司测试时，测试结果如下 1select count(*) from cust_order   数据量：3000000以上 花费时间：6845ms  常规分页查询测试1select * from cust_order where order_type=5 limit 50000,100  默认按主键i">
+<meta property="og:type" content="article">
+<meta property="og:title" content="大数据量分页查询优化">
+<meta property="og:url" content="http://yoursite.com/2019/07/23/mysql单表历史表数据量很大，分页查询优化/index.html">
 <meta property="og:site_name" content="Trevor Feng">
-<meta property="og:description" content="please relax">
+<meta property="og:description" content="前言在公司的历史数据表中，数据量很大，上了百万级别。使用常规的分页查询，不能达到理想的效果，今天在公司测试时，测试结果如下 1select count(*) from cust_order   数据量：3000000以上 花费时间：6845ms  常规分页查询测试1select * from cust_order where order_type=5 limit 50000,100  默认按主键i">
 <meta property="og:locale" content="zh-Hans">
+<meta property="og:updated_time" content="2019-07-23T13:39:25.317Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Trevor Feng">
-<meta name="twitter:description" content="please relax">
+<meta name="twitter:title" content="大数据量分页查询优化">
+<meta name="twitter:description" content="前言在公司的历史数据表中，数据量很大，上了百万级别。使用常规的分页查询，不能达到理想的效果，今天在公司测试时，测试结果如下 1select count(*) from cust_order   数据量：3000000以上 花费时间：6845ms  常规分页查询测试1select * from cust_order where order_type=5 limit 50000,100  默认按主键i">
 
 
 
@@ -121,13 +122,13 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/categories/JVM/">
+  <link rel="canonical" href="http://yoursite.com/2019/07/23/mysql单表历史表数据量很大，分页查询优化/">
 
 
 
 
 
-  <title>分类: JVM | Trevor Feng</title>
+  <title>大数据量分页查询优化 | Trevor Feng</title>
   
 
 
@@ -265,7 +266,7 @@ window.onmouseout = function () {
     
   
 
-  <div class="container sidebar-position-left ">
+  <div class="container sidebar-position-left page-post-detail">
     <div class="headband"></div>
 <a href="https://github.com/trevorFeng"><img style="position: absolute; top: 0; left: 0; border: 0;" src="https://s3.amazonaws.com/github/ribbons/forkme_left_gray_6d6d6d.png" alt="Fork me on GitHub"></a>
 
@@ -360,53 +361,270 @@ window.onmouseout = function () {
           <div id="content" class="content">
             
 
-  
-  
-  
-  <div class="post-block category">
+  <div id="posts" class="posts-expand">
+    
 
-    <div id="posts" class="posts-collapse">
-      <div class="collection-title">
-        <h1>JVM<small>分类</small>
-        </h1>
-      </div>
+  
 
-      
-        
+  
+  
+  
 
   <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/07/23/mysql单表历史表数据量很大，分页查询优化/">
 
-      <h2 class="post-title">
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Trevor">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Trevor Feng">
+    </span>
+
+    
+      <header class="post-header">
+
         
-            <a class="post-title-link" href="/2019/07/14/类加载机制/" itemprop="url">
-              
-                <span itemprop="name">类加载机制</span>
-              
-            </a>
         
-      </h2>
+          <h1 class="post-title" itemprop="name headline">大数据量分页查询优化</h1>
+        
 
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated" datetime="2019-07-14T23:29:27+08:00" content="2019-07-14">
-          07-14
-        </time>
-      </div>
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-07-23T21:39:30+08:00">
+                2019-07-23
+              </time>
+            
 
-    </header>
-  </article>
+            
+
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/mysql/" itemprop="url" rel="index">
+                    <span itemprop="name">mysql</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+             <span id="/2019/07/23/mysql单表历史表数据量很大，分页查询优化/" class="leancloud_visitors" data-flag-title="大数据量分页查询优化">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">阅读次数&#58;</span>
+               
+                 <span class="leancloud-visitors-count"></span>
+             </span>
+          
+
+          
+
+          
+            <div class="post-wordcount">
+              
+                
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">字数统计&#58;</span>
+                
+                <span title="字数统计">
+                  
+                </span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
+                
+                <span title="阅读时长">
+                  
+                </span>
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
 
 
       
-    </div>
+      
 
+      
+        <h3 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h3><p>在公司的历史数据表中，数据量很大，上了百万级别。使用常规的分页查询，不能达到理想的效果，今天在公司测试时，测试结果如下</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">select count(*) from cust_order</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>数据量：3000000以上</li>
+<li>花费时间：6845ms</li>
+</ul>
+<h3 id="常规分页查询测试"><a href="#常规分页查询测试" class="headerlink" title="常规分页查询测试"></a>常规分页查询测试</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">select * from cust_order where order_type=5 limit 50000,100</span><br></pre></td></tr></table></figure>
+
+<p>默认按主键id排序，且id为自增</p>
+<h5 id="记录行的偏移量为50000"><a href="#记录行的偏移量为50000" class="headerlink" title="记录行的偏移量为50000"></a>记录行的偏移量为50000</h5><ul>
+<li>花费时间2786ms</li>
+</ul>
+<h5 id="记录行的偏移量为500000"><a href="#记录行的偏移量为500000" class="headerlink" title="记录行的偏移量为500000"></a>记录行的偏移量为500000</h5><ul>
+<li>花费时间5980ms</li>
+</ul>
+<h5 id="记录行的偏移量为2000000"><a href="#记录行的偏移量为2000000" class="headerlink" title="记录行的偏移量为2000000"></a>记录行的偏移量为2000000</h5><ul>
+<li>花费时间15560ms</li>
+</ul>
+<h5 id="结论：常规分页查询默认从第一行开始扫描，偏移量越大，查询数据越慢"><a href="#结论：常规分页查询默认从第一行开始扫描，偏移量越大，查询数据越慢" class="headerlink" title="结论：常规分页查询默认从第一行开始扫描，偏移量越大，查询数据越慢"></a>结论：常规分页查询默认从第一行开始扫描，偏移量越大，查询数据越慢</h5><h3 id="限定id的起始值优化"><a href="#限定id的起始值优化" class="headerlink" title="限定id的起始值优化"></a>限定id的起始值优化</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">select * from cust_order where order_type=5 and id&gt;=500000 limit 100</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>花费时间11ms</li>
+</ul>
+<h3 id="思考：假如id不是连续自增，如数据有缺失，how-to-do，待更新"><a href="#思考：假如id不是连续自增，如数据有缺失，how-to-do，待更新" class="headerlink" title="思考：假如id不是连续自增，如数据有缺失，how to do，待更新"></a>思考：假如id不是连续自增，如数据有缺失，how to do，待更新</h3>
+      
+    </div>
+    
+    
+    
+
+
+<div>
+    <div>
+    
+        <div style="text-align:center;color: #ccc;font-size:14px;">-------------本文结束 <i class="fa fa-heart"></i> 感谢阅读-------------</div>
+    
+</div>
+</div>
+ 
+
+    
+
+    
+      <div>
+        <div style="padding: 10px 0; margin: 20px auto; width: 90%; text-align: center;">
+  <div>坚持原创技术分享，您的支持将鼓励我继续创作！</div>
+  <button id="rewardButton" disable="enable" onclick="var qr = document.getElementById('QR'); if (qr.style.display === 'none') {qr.style.display='block';} else {qr.style.display='none'}">
+    <span>打赏</span>
+  </button>
+  <div id="QR" style="display: none;">
+
+    
+      <div id="wechat" style="display: inline-block">
+        <img id="wechat_qr" src="/uploads/wechatpay.png" alt="Trevor 微信打赏">
+        <p>微信打赏</p>
+      </div>
+    
+
+    
+      <div id="alipay" style="display: inline-block">
+        <img id="alipay_qr" src="/uploads/alipay.jpg" alt="Trevor 支付宝打赏">
+        <p>支付宝打赏</p>
+      </div>
+    
+
+    
+
+  </div>
+</div>
+
+      </div>
+    
+
+    
+
+
+
+    <footer class="post-footer">
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2019/07/14/类加载机制/" rel="next" title="类加载机制">
+                <i class="fa fa-chevron-left"></i> 类加载机制
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
   </div>
   
   
   
+  </article>
 
-  
 
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
 
 
           </div>
@@ -414,6 +632,15 @@ window.onmouseout = function () {
 
 
           
+
+  
+    <div class="comments" id="comments">
+      <div id="SOHUCS"></div>
+    </div>
+
+  
+
+
 
         </div>
         
@@ -434,8 +661,17 @@ window.onmouseout = function () {
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
+      <section class="site-overview-wrap sidebar-panel">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
@@ -505,6 +741,22 @@ window.onmouseout = function () {
         </div>
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#前言"><span class="nav-number">1.</span> <span class="nav-text">前言</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#常规分页查询测试"><span class="nav-number">2.</span> <span class="nav-text">常规分页查询测试</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#记录行的偏移量为50000"><span class="nav-number">2.0.1.</span> <span class="nav-text">记录行的偏移量为50000</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#记录行的偏移量为500000"><span class="nav-number">2.0.2.</span> <span class="nav-text">记录行的偏移量为500000</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#记录行的偏移量为2000000"><span class="nav-number">2.0.3.</span> <span class="nav-text">记录行的偏移量为2000000</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#结论：常规分页查询默认从第一行开始扫描，偏移量越大，查询数据越慢"><span class="nav-number">2.0.4.</span> <span class="nav-text">结论：常规分页查询默认从第一行开始扫描，偏移量越大，查询数据越慢</span></a></li></ol></li></ol><li class="nav-item nav-level-3"><a class="nav-link" href="#限定id的起始值优化"><span class="nav-number">3.</span> <span class="nav-text">限定id的起始值优化</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#思考：假如id不是连续自增，如数据有缺失，how-to-do，待更新"><span class="nav-number">4.</span> <span class="nav-text">思考：假如id不是连续自增，如数据有缺失，how to do，待更新</span></a></li></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
       
@@ -678,6 +930,10 @@ window.onmouseout = function () {
 
 
   
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
 
   
 
