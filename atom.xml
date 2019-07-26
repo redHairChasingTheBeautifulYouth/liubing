@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2019-07-25T14:11:00.618Z</updated>
+  <updated>2019-07-26T13:24:09.586Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -15,6 +15,29 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>redis事务</title>
+    <link href="http://yoursite.com/2019/07/26/redis%E4%BA%8B%E5%8A%A1/"/>
+    <id>http://yoursite.com/2019/07/26/redis事务/</id>
+    <published>2019-07-26T13:25:04.810Z</published>
+    <updated>2019-07-26T13:24:09.586Z</updated>
+    
+    <content type="html"><![CDATA[<h3 id="基本使用"><a href="#基本使用" class="headerlink" title="基本使用"></a>基本使用</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">127.0.0.1:6379&gt; set baidu liyanhong</span><br><span class="line">OK</span><br><span class="line">127.0.0.1:6379&gt; multi</span><br><span class="line">OK</span><br><span class="line">127.0.0.1:6379&gt; set baidu yanhonghuoshui</span><br><span class="line">QUEUED</span><br><span class="line">127.0.0.1:6379&gt; get baidu</span><br><span class="line">QUEUED</span><br><span class="line">127.0.0.1:6379&gt; incr baidu</span><br><span class="line">QUEUED</span><br><span class="line">127.0.0.1:6379&gt; set baidu shaibi</span><br><span class="line">QUEUED</span><br><span class="line">127.0.0.1:6379&gt; exec</span><br><span class="line">1) OK</span><br><span class="line">2) &quot;yanhonghuoshui&quot;</span><br><span class="line">3) (error) ERR value is not an integer or out of range</span><br><span class="line">4) OK</span><br><span class="line">127.0.0.1:6379&gt; get baidu</span><br><span class="line">&quot;shaibi&quot;</span><br><span class="line">127.0.0.1:6379&gt;</span><br></pre></td></tr></table></figure><ul><li>使用multi开启一个事务</li><li>中间的指令存入存入服务器的队列</li><li>exec执行队列</li></ul><h3 id="注意点"><a href="#注意点" class="headerlink" title="注意点"></a>注意点</h3><ul><li>事务不是原子性的，也就是某条指令失败与否，其他指令也会执行，不是一个指令失败，全部回滚</li><li>redis的事务仅仅是隔离性，当前事务有着不被其他事务打断的权利</li></ul><h3 id="discard丢弃队列中的指令"><a href="#discard丢弃队列中的指令" class="headerlink" title="discard丢弃队列中的指令"></a>discard丢弃队列中的指令</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">127.0.0.1:6379&gt; set mayun cuiniubi</span><br><span class="line">OK</span><br><span class="line">127.0.0.1:6379&gt; multi</span><br><span class="line">OK</span><br><span class="line">127.0.0.1:6379&gt; set mayun niubi</span><br><span class="line">QUEUED</span><br><span class="line">127.0.0.1:6379&gt; get mayun</span><br><span class="line">QUEUED</span><br><span class="line">127.0.0.1:6379&gt; discard</span><br><span class="line">OK</span><br><span class="line">127.0.0.1:6379&gt; get mayun</span><br><span class="line">&quot;cuiniubi&quot;</span><br><span class="line">127.0.0.1:6379&gt;</span><br></pre></td></tr></table></figure><h3 id="批量入队指令"><a href="#批量入队指令" class="headerlink" title="批量入队指令"></a>批量入队指令</h3><p>如果一个事务中的指令过多，需要的网络IO 时间增加，所以redis客户端使用事务一般结合pipeline一起使用，将全部的指令压缩成一次IO操作</p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h3 id=&quot;基本使用&quot;&gt;&lt;a href=&quot;#基本使用&quot; class=&quot;headerlink&quot; title=&quot;基本使用&quot;&gt;&lt;/a&gt;基本使用&lt;/h3&gt;&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pr
+      
+    
+    </summary>
+    
+      <category term="redis" scheme="http://yoursite.com/categories/redis/"/>
+    
+    
+  </entry>
   
   <entry>
     <title>redis基础数据结构</title>
